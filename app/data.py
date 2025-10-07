@@ -2,7 +2,7 @@ from os import getenv
 
 from certifi import where
 from dotenv import load_dotenv
-from MonsterLab import Monster
+from BloomtechMonsterLab import Monster
 from pandas import DataFrame
 from pymongo import MongoClient
 
