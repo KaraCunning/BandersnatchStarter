@@ -6,7 +6,7 @@ Jinja2
 joblib
 jupyter
 numpy
-MonsterLab
+bloomtechmonsterlab-1.0.0-py3-none-any.whl
 pandas
 pymongo[srv]
 python-dotenv
