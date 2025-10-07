@@ -2,7 +2,7 @@ from base64 import b64decode
 import os
 
 import random
-from MonsterLab import Monster
+from BloomtechMonsterLab import Monster
 from flask import Flask, render_template, request
 from pandas import DataFrame
 

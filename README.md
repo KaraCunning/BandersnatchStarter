@@ -1,16 +1,20 @@
 # Bandersnatch Project
 
 ## Introduction
+
 Bandersnatch is a data science and machine learning project that allows you to work with monster data, create visualizations, and build a machine learning model. The project is structured as a series of sprints that build on each other, guiding you through database operations, data visualization, and machine learning model development.
 
 ## Project Structure
+
 - `/`: Splash Page
 - `/data`: Tabular Monster Data
 - `/view`: Dynamic Visualizations
 - `/model`: Interactive Machine Learning Model
 
 ## Sprint Tickets
+
 Work through these sprints in order:
+
 1. [Sprint 1: Database Operations](tickets/firstTicket.md) - Set up MongoDB and create monster data
 2. [Sprint 2: Dynamic Visualizations](tickets/secondTicket.md) - Create interactive visualizations with Altair
 3. [Sprint 3: Machine Learning Model](tickets/thirdTicket.md) - Build and integrate a machine learning model
@@ -18,16 +22,20 @@ Work through these sprints in order:
 ## Getting Started
 
 ### Fork and Clone the Repository
+
 1. Fork this repository to your GitHub account
 2. Clone your forked repository locally:
-```
+
+```bash
 git clone https://github.com/your-username/BandersnatchStarter.git
 cd BandersnatchStarter
 ```
 
 ### Setup Virtual Environment
+
 #### Windows
-```
+
+```bash
 python -m venv venv
 venv\Scripts\activate
 python -m pip install --upgrade pip setuptools wheel
@@ -35,7 +43,8 @@ python -m pip install -r requirements.txt
 ```
 
 #### macOS/Linux
-```
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
 python3 -m pip install --upgrade pip setuptools wheel
@@ -43,29 +52,33 @@ python3 -m pip install -r requirements.txt
 ```
 
 Alternatively, macOS/Linux users can use the provided install script:
-```
+
+```bash
 source venv/bin/activate
 ./install.sh
 ```
 
 ### Running the Application
 
-#### Windows
-```
+#### For Windows
+
+```bash
 python -m app.main
 ```
 
-#### macOS/Linux
-```
+#### For macOS/Linux
+
+```bash
 python3 -m app.main
 ```
 
 Or use the provided run script:
-```
+
+```bash
 ./run.sh
 ```
 
-The application will be available at http://127.0.0.1:5000/
+The application will be available at <http://127.0.0.1:5000/>
 
 ### Deploying to Render.com
 
@@ -84,6 +97,7 @@ The application will be available at http://127.0.0.1:5000/
 Your application will be deployed and available at a URL provided by Render.
 
 ## Tech Stack
+
 - Logic: Python3
 - API Framework: Flask
 - Templates: Jinja2
@@ -95,18 +109,22 @@ Your application will be deployed and available at a URL provided by Render.
 - Hosting: Render.com
 
 ## Database Setup (for Sprint 1)
+
 1. Sign up for a MongoDB account: [MongoDB](https://account.mongodb.com)
 2. Create a "Shared Cluster" (free tier)
 3. Add your IP address to the allowed locales list
 4. Copy the connection string into a `.env` file in your project root:
-   ```
+
+   ```bash
    DB_URL=mongodb+srv://<username>:<password>@<cluster>.<project_id>.mongodb.net
    ```
 
 ## Windows-Specific Notes
+
 - Gunicorn is not Windows compatible, so don't use the `run.sh` script on Windows
 
 ## Stretch Goals
+
 - Use ElephantSQL instead of MongoDB
 - Use Plotly instead of Altair
 - Use PyTorch instead of Scikit
