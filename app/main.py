@@ -10,7 +10,7 @@ from app.data import Database
 from app.graph import chart
 from app.machine import Machine
 
-SPRINT = 0
+SPRINT = 1
 APP = Flask(__name__)
 
 
@@ -97,4 +97,8 @@ def model():
 
 
 if __name__ == '__main__':
+    db = Database()
+    num_monsters_to_seed = 1000
+    seeded_monsters = db.seed(num_monsters_to_seed)
+    print(f"seeded {seeded_monsters} monsters in the database.")
     APP.run()
