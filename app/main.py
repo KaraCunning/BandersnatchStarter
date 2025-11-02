@@ -98,9 +98,9 @@ def model():
 
 if __name__ == '__main__':
     db = Database()
-    num_monsters_to_seed = 10
+    num_monsters_to_seed = 1000
     seeded_monsters = db.seed(num_monsters_to_seed)
     print(f"seeded {seeded_monsters} monsters in the database.")
     
-    port = int(os.environ.get("PORT", 5000))
-    APP.run(host="0.0.0.0",port=port)
+    #port = int(os.environ.get("PORT", 5000))
+    #APP.run(host="0.0.0.0",port=port)
