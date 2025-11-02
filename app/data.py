@@ -31,8 +31,10 @@ class Database:
             monsters = [random_generator.RandomGenerator() for _ in range(num_monsters)]
             monster_dicts = [m.__dict__ for m in monsters]
             self.collection.insert_many(monster_dicts)
+            print(f"Seeded {num_monsters} monster")
             return num_monsters
         except Exception:
+            print("Error seeding monsters", e)
             return 0
 
     def reset(self):
