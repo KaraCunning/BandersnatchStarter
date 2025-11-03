@@ -5,9 +5,16 @@ from dotenv import load_dotenv
 from BloomtechMonsterLab import Monster, MonsterLab, monster_lab, random_generator
 from pandas import DataFrame
 from pymongo import MongoClient
+from random import randint, choice
 import pandas as pd
 load_dotenv()
 
+class RandomGenerator:
+    """Generate a random monster with Health, Energy and Rarity"""
+    def __init__(self):
+        self.health = randint(10, 100)
+        self.energy = randint(20, 80)
+        self.rarity = choice(["Rank1", "Rank2", "Rank3", "Rank4"])
 
 class Database:
     """ Interface for database operations."""
@@ -28,12 +35,13 @@ class Database:
             int: Number of monsters successfully seeded
         """
         try:
-            monsters = [random_generator.RandomGenerator() for _ in range(num_monsters)]
+            monsters = [RandomGenerator() for _ in range(num_monsters)]
             monster_dicts = [m.__dict__ for m in monsters]
+            print(monster_dicts[:5])
             self.collection.insert_many(monster_dicts)
             print(f"Seeded {num_monsters} monster")
             return num_monsters
-        except Exception:
+        except Exception as e:
             print("Error seeding monsters", e)
             return 0
 
@@ -46,7 +54,7 @@ class Database:
         try:
             self.collection.delete_many({})
             return True
-        except Exception:
+        except Exception as e:
             return False
 
     def count(self) -> int:
@@ -74,3 +82,12 @@ class Database:
         """
         df = self.dataframe()
         return df.to_html() if df is not None else None
+
+if __name__ == "__main__":
+    db = Database()
+    print("Current monster count:", db.count())
+    db.reset()
+    # Seed 5 monsters for a quick test
+    db.seed(10)
+    df = db.dataframe()
+    print(df)

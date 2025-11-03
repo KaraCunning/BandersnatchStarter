@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": "transparent"}, "axis": {"labelColor": "#ffffff", "titleColor": "#ffffff"}, "legend": {"labelColor": "#ffffff", "titleColor": "#ffffff"}, "title": {"color": "#ffffff"}}, "data": {"name": "data-4b2a8ea95900e77ac3603a862b863e92"}, "mark": {"type": "circle", "size": 100}, "background": "#2a303c", "encoding": {"color": {"field": "rarity", "legend": {"title": "rarity"}, "type": "nominal"}, "tooltip": [{"field": "health", "type": "quantitative"}, {"field": "energy", "type": "quantitative"}, {"field": "rarity", "type": "nominal"}], "x": {"field": "health", "title": "health", "type": "quantitative"}, "y": {"field": "energy", "title": "energy", "type": "quantitative"}}, "height": 400, "padding": 20, "title": "energy by health for rarity", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-4b2a8ea95900e77ac3603a862b863e92": [{"health": 27, "energy": 21, "rarity": "Rank1"}, {"health": 65, "energy": 23, "rarity": "Rank2"}, {"health": 52, "energy": 28, "rarity": "Rank2"}, {"health": 60, "energy": 69, "rarity": "Rank2"}, {"health": 37, "energy": 59, "rarity": "Rank2"}, {"health": 34, "energy": 58, "rarity": "Rank3"}, {"health": 98, "energy": 69, "rarity": "Rank4"}, {"health": 15, "energy": 43, "rarity": "Rank4"}, {"health": 46, "energy": 33, "rarity": "Rank1"}, {"health": 42, "energy": 63, "rarity": "Rank2"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

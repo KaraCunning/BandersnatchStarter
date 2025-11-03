@@ -3,7 +3,6 @@ from altair import Chart
 from pandas import DataFrame
 
 
-
 def chart(df: DataFrame, x: str, y: str, target: str) -> Chart:
     """Create an interactive scatter plot visualization.
     
@@ -16,22 +15,21 @@ def chart(df: DataFrame, x: str, y: str, target: str) -> Chart:
     Returns:
         Altair Chart object
     """
-    # Configure chart properties for dark theme
+
     properties = {
         "width": 600,
         "height": 400,
         "background": "#2a303c",
         "padding": 20
     }
-  
-    # Create base chart with dark theme configuration
+
     graph = (
         alt.Chart(df, title=f"{y} by {x} for {target}")
         .mark_circle(size=100)
         .encode(
             x = alt.X(x, title=x),
             y = alt.Y(y, title=y),
-            color = alt.Color(target, legend=alt.Legend(title=target)),
+            color = alt.Color(target, type = "nominal", legend=alt.Legend(title=target)),
             tooltip = list(df.columns)
         )
         .properties(
